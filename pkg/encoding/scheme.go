@@ -17,7 +17,6 @@ limitations under the License.
 package encoding
 
 import (
-	"os"
 
 	admissionv1beta1 "k8s.io/api/admission/v1beta1"
 
@@ -73,7 +72,6 @@ import (
 	serializer "k8s.io/apimachinery/pkg/runtime/serializer"
 )
 
-var Registry = registered.NewOrDie(os.Getenv("KUBE_API_VERSIONS"))
 var Scheme = runtime.NewScheme()
 var Codecs = serializer.NewCodecFactory(Scheme)
 var ParameterCodec = runtime.NewParameterCodec(Scheme)
